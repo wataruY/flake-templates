@@ -20,15 +20,15 @@
       devShells = eachSystem (
         _system: pkgs: {
           default = pkgs.mkShell {
-            packages = [
-              pkgs.nodejs
+            packages = with pkgs; [
+              nodejs
 
               # Alternatively, you can use a specific major version of Node.js
 
               # pkgs.nodejs-22_x
 
               # Use corepack to install npm/pnpm/yarn as specified in package.json
-              pkgs.corepack
+              corepack
 
               # To install a specific alternative package manager directly,
               # comment out one of these to use an alternative package manager.
@@ -38,7 +38,8 @@
               # pkgs.bun
 
               # Required to enable the language server
-              pkgs.typescript
+              typescript
+              typescript-language-server
 
               # Python is required on NixOS if the dependencies require node-gyp
 
